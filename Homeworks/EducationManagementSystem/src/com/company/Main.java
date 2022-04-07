@@ -90,14 +90,15 @@ public class Main {
         teacher1.addToClassList(student3);
         teacher1.addToClassList(student4);
 
-
         teacher2.addToClassList(student2);
         teacher2.addToClassList(student3);
 
+        // Remove users from database
         teacherManager.removeTeacher(teacher1);
         studentManager.removeStudent(student3);
         studentManager.removeStudent(student4);
 
+        // Print all users
         print.printStudents(studentManager);
         print.printTeachers(teacherManager);
     }
