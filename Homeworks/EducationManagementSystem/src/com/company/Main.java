@@ -96,7 +96,7 @@ public class Main {
 
         teacherManager.removeTeacher(teacher1);
         studentManager.removeStudent(student3);
-        studentManager.removeStudent(student3);
+        studentManager.removeStudent(student4);
 
         print.printStudents(studentManager);
         print.printTeachers(teacherManager);
