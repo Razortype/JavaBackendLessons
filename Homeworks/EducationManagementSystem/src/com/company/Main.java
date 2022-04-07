@@ -61,6 +61,7 @@ public class Main {
                 "Ergüven",
                 52,
                 false,
+                "Linear Algebra",
                 6
         );
 
@@ -70,23 +71,32 @@ public class Main {
                 "Kuşçu",
                 43,
                 true,
+                "Calculus 2",
                 3
         );
 
+        // Initialising users as students
         studentManager.addStudent(student1);
         studentManager.addStudent(student2);
         studentManager.addStudent(student3);
         studentManager.addStudent(student4);
 
+        // Initialising users as teachers
         teacherManager.addTeacher(teacher1);
         teacherManager.addTeacher(teacher2);
 
+        // Adding students to teachers' classroom
         teacher1.addToClassList(student1);
         teacher1.addToClassList(student3);
         teacher1.addToClassList(student4);
 
+
         teacher2.addToClassList(student2);
         teacher2.addToClassList(student3);
+
+        teacherManager.removeTeacher(teacher1);
+        studentManager.removeStudent(student3);
+        studentManager.removeStudent(student3);
 
         print.printStudents(studentManager);
         print.printTeachers(teacherManager);

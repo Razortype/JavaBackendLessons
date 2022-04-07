@@ -16,6 +16,11 @@ public class TeacherManager {
         print.printAddTeacher(teacher);
     }
 
+    public void removeTeacher (Teacher teacher) {
+        teachers.remove(teacher);
+        print.printRemoveTeacher(teacher);
+    }
+
     public ArrayList<Teacher> getTeachers() {
         return teachers;
     }

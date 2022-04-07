@@ -16,6 +16,11 @@ public class StudentManager {
         print.printAddStudent(student);
     }
 
+    public void removeStudent(Student student) {
+        students.remove(student);
+        print.printRemoveStudent(student);
+    }
+
     public ArrayList<Student> getStudents() {
         return students;
     }
