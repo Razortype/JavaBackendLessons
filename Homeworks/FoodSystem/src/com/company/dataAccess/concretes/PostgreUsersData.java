@@ -26,4 +26,12 @@ public class PostgreUsersData implements UsersDataDao {
     public User get(int id) {
         return null;
     }
+
+    @Override
+    public boolean checkUserValidation(String email, String password) {
+
+        boolean tempResult = true;
+        return tempResult;
+
+    }
 }

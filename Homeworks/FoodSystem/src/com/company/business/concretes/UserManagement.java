@@ -1,6 +1,8 @@
 package com.company.business.concretes;
 
 import com.company.business.abstracts.UserService;
+import com.company.dataAccess.abstracts.UsersDataDao;
+import com.company.dataAccess.concretes.PostgreUsersData;
 import com.company.entities.concretes.User;
 
 import java.util.ArrayList;
@@ -8,6 +10,13 @@ import java.util.ArrayList;
 public class UserManagement implements UserService {
 
     ArrayList<User> users = new ArrayList<>();
+
+    private final PostgreUsersData postgreUsersData;
+
+    public UserManagement(PostgreUsersData postgreUsersData) {
+        this.postgreUsersData = postgreUsersData;
+    }
+
 
     @Override
     public void addUser(User user) {

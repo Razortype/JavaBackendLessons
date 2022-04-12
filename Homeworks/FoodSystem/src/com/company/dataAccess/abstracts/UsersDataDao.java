@@ -10,5 +10,6 @@ public interface UsersDataDao {
     void add(User user);
     void delete(User user);
     User get(int id);
+    boolean checkUserValidation(String email, String password);
 
 }

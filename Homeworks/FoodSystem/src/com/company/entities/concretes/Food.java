@@ -3,6 +3,7 @@ package com.company.entities.concretes;
 import com.company.entities.abstracts.FoodEntity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Food implements FoodEntity {
 
@@ -19,6 +20,7 @@ public class Food implements FoodEntity {
         this.name = name;
         this.price = price;
         this.defaultAttributes = defaultAttributes;
+        this.itemContainer = (ArrayList<String>)defaultAttributes.clone();
         this.discountPerItem = discountPerItem;
     }
 
