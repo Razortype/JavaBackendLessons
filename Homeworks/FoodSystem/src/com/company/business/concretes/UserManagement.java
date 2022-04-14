@@ -17,6 +17,10 @@ public class UserManagement implements UserService {
         this.postgreUsersData = postgreUsersData;
     }
 
+    @Override
+    public void addAllData() {
+        users = postgreUsersData.getAll();
+    }
 
     @Override
     public void addUser(User user) {

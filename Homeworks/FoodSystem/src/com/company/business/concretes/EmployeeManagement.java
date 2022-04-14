@@ -17,6 +17,12 @@ public class EmployeeManagement implements EmployeeService {
     }
 
     @Override
+    public void addAllData() {
+
+        employees = postgreEmployeesData.getAll();
+    }
+
+    @Override
     public void addEmployee(Employee employee) {
         this.employees.add(employee);
     }

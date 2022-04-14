@@ -50,11 +50,11 @@ public class Main {
         userManagement.addUser(user1);
 
         pizza.removeItemFromFood("salami");
-        System.out.println(pizza.getItemContainer());
 
         foodManagement.addFood(user1.getId(), pizza);
 
         System.out.println((foodManagement.getFoodOrderList().get(user1.getId()).getFinalCost()));
+
 
     }
 }

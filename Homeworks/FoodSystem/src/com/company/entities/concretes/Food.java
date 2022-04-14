@@ -3,6 +3,7 @@ package com.company.entities.concretes;
 import com.company.entities.abstracts.FoodEntity;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 
 public class Food implements FoodEntity {
@@ -12,6 +13,7 @@ public class Food implements FoodEntity {
     private double price;
     private ArrayList<String> defaultAttributes;
     private double discountPerItem;
+    double discountAmountInWednesdays = 0.1;
 
     ArrayList<String> itemContainer = new ArrayList<>();
 
@@ -76,13 +78,24 @@ public class Food implements FoodEntity {
     public double getFinalCost() {
 
         int itemCounter = 0;
+        double result;
+
+        Calendar c = Calendar.getInstance();
+        int day = c.get(Calendar.DAY_OF_WEEK);
+
         for (String item : this.itemContainer) {
             if (this.defaultAttributes.contains(item)) {
                 itemCounter++;
             }
         }
 
-        return this.price - this.discountPerItem * itemCounter;
+        result = this.price - this.discountPerItem * itemCounter;
+
+        if (day == Calendar.WEDNESDAY) {
+            result -= result * discountAmountInWednesdays;
+        }
+
+        return result;
     }
 
     @Override
