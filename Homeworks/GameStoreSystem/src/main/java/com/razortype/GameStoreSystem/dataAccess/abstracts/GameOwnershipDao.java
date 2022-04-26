@@ -1,5 +1,13 @@
 package com.razortype.GameStoreSystem.dataAccess.abstracts;
 
 
-public interface GameOwnershipDao {
+import com.razortype.GameStoreSystem.entities.concretes.GameOwnership;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface GameOwnershipDao extends JpaRepository<GameOwnership, Integer> {
+
+    List<GameOwnership> findAllByUser_id(int id);
+
 }
