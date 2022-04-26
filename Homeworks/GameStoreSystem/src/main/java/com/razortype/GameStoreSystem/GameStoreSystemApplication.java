@@ -9,7 +9,7 @@ public class GameStoreSystemApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GameStoreSystemApplication.class, args);
 
-		System.out.println("Up and running well ;)");
+		System.out.println("Game Store Application");
 
 	}
 
