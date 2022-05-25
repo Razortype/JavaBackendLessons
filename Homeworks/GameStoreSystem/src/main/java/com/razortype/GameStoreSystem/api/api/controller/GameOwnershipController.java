@@ -21,9 +21,4 @@ public class GameOwnershipController {
         return this.gameOwnershipService.getAll();
     }
 
-    @GetMapping("/getGames")
-    public List<GameOwnership> getAllByUserId(@RequestParam int id) {
-        return this.gameOwnershipService.getAllByUserId(id);
-    }
-
 }

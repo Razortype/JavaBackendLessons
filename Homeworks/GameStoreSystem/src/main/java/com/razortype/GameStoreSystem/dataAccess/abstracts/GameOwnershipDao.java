@@ -8,6 +8,4 @@ import java.util.List;
 
 public interface GameOwnershipDao extends JpaRepository<GameOwnership, Integer> {
 
-    List<GameOwnership> findAllByUser_id(int id);
-
 }

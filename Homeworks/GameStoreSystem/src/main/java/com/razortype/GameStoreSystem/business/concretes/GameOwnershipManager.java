@@ -19,9 +19,4 @@ public class GameOwnershipManager implements GameOwnershipService {
         return this.gameOwnershipDao.findAll();
     }
 
-    @Override
-    public List<GameOwnership> getAllByUserId(int id) {
-        return this.gameOwnershipDao.findAllByUser_id(id);
-    }
-
 }
