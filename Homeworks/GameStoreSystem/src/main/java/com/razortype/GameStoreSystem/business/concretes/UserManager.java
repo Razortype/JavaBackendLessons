@@ -1,6 +1,8 @@
 package com.razortype.GameStoreSystem.business.concretes;
 
 import com.razortype.GameStoreSystem.business.abstracts.UserService;
+import com.razortype.GameStoreSystem.core.result.DataResult;
+import com.razortype.GameStoreSystem.core.result.SuccessDataResult;
 import com.razortype.GameStoreSystem.dataAccess.abstracts.UserDao;
 import com.razortype.GameStoreSystem.dataAccess.abstracts.UserInfoDao;
 import com.razortype.GameStoreSystem.entities.concretes.User;
@@ -18,8 +20,9 @@ public class UserManager implements UserService {
     private final UserInfoDao userInfoDao;
 
     @Override
-    public List<User> getAll() {
-        return userDao.findAll();
+    public DataResult<List<User>> getAll() {
+        List<User> users = this.userDao.findAll();
+        return new SuccessDataResult<>(users, "Users Listed!");
     }
 
     @Override
@@ -36,6 +39,16 @@ public class UserManager implements UserService {
         }
 
         return userInfo;
+    }
+
+    @Override
+    public User getUserById(String username) {
+        return this.userDao.findUserByUsername(username);
+    }
+
+    @Override
+    public void add(User user) {
+        this.userDao.save(user);
     }
 
 }
