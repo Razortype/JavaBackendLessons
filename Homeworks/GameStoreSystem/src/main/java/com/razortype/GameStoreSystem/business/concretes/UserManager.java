@@ -1,8 +1,7 @@
 package com.razortype.GameStoreSystem.business.concretes;
 
 import com.razortype.GameStoreSystem.business.abstracts.UserService;
-import com.razortype.GameStoreSystem.core.result.DataResult;
-import com.razortype.GameStoreSystem.core.result.SuccessDataResult;
+import com.razortype.GameStoreSystem.core.result.*;
 import com.razortype.GameStoreSystem.dataAccess.abstracts.UserDao;
 import com.razortype.GameStoreSystem.dataAccess.abstracts.UserInfoDao;
 import com.razortype.GameStoreSystem.entities.concretes.User;
@@ -42,13 +41,19 @@ public class UserManager implements UserService {
     }
 
     @Override
-    public User getUserById(String username) {
-        return this.userDao.findUserByUsername(username);
+    public DataResult<User> getUserById(String username) {
+        User user = this.userDao.findUserByUsername(username);
+        if (user != null) {
+            return new SuccessDataResult<>(user, "User Exported!");
+        } else {
+            return new ErrorDataResult<>("User Could not Exported!");
+        }
     }
 
     @Override
-    public void add(User user) {
+    public Result add(User user) {
         this.userDao.save(user);
+        return new SuccessResult("Successfully Saved to Database!");
     }
 
 }

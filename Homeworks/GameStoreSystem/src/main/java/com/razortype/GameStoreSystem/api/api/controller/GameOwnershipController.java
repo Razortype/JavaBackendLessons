@@ -1,6 +1,7 @@
 package com.razortype.GameStoreSystem.api.api.controller;
 
 import com.razortype.GameStoreSystem.business.abstracts.GameOwnershipService;
+import com.razortype.GameStoreSystem.core.result.DataResult;
 import com.razortype.GameStoreSystem.entities.concretes.GameOwnership;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ public class GameOwnershipController {
     private final GameOwnershipService gameOwnershipService;
 
     @GetMapping("/all")
-    public List<GameOwnership> getAll() {
+    public DataResult<List<GameOwnership>> getAll() {
         return this.gameOwnershipService.getAll();
     }
 

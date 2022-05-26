@@ -1,6 +1,7 @@
 package com.razortype.GameStoreSystem.api.api.controller;
 
 import com.razortype.GameStoreSystem.business.abstracts.GameService;
+import com.razortype.GameStoreSystem.core.result.DataResult;
 import com.razortype.GameStoreSystem.dataAccess.abstracts.GameDao;
 import com.razortype.GameStoreSystem.entities.concretes.Game;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ public class GameController {
     private final GameService gameService;
 
     @GetMapping("/all")
-    public List<Game> getAll() {
+    public DataResult<List<Game>> getAll() {
         return this.gameService.getAll();
     }
 
