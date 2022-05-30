@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public UserInfo loginUser(@RequestBody String username, @RequestBody String password) {
+    public DataResult<UserInfo> loginUser(@RequestBody String username, @RequestBody String password) {
         return this.userService.loginUser(username, password);
     }
 

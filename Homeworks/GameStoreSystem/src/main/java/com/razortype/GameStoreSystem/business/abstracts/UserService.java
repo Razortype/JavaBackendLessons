@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserService {
 
     DataResult<List<User>> getAll();
-    UserInfo loginUser(String username, String password);
+    DataResult<UserInfo> loginUser(String username, String password);
     DataResult<User> getUserById(String username);
     Result add(User user);
 

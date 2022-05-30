@@ -25,19 +25,24 @@ public class UserManager implements UserService {
     }
 
     @Override
-    public UserInfo loginUser(String username, String password) {
+    public DataResult<UserInfo> loginUser(String username, String password) {
 
         User user = userDao.findByUsernameAndPassword(username, password) ;
-        UserInfo userInfo = new UserInfo();
+        UserInfo userInfo;
 
-        System.out.println(user.getUsername());
-
-        if (user.getUsername() != null) {
+        if (user != null) {
             int id = user.getId();
             userInfo = userInfoDao.getById(id);
+        } else {
+            return new ErrorDataResult<>("No user has found");
         }
 
-        return userInfo;
+        if (userInfo != null) {
+            return new SuccessDataResult<>(userInfo, "Login Executed");
+        } else {
+            return new ErrorDataResult<>("No user has found");
+        }
+
     }
 
     @Override

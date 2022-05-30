@@ -8,5 +8,8 @@ import java.util.List;
 public interface GameService {
 
     DataResult<List<Game>> getAll();
+    DataResult<List<Game>> loadGames(int start, int range);
+    
+
 
 }
